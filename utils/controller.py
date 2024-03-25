@@ -1,7 +1,7 @@
 import time
 import keyboard
-import ctypes #For get resolution of the screen
-import pyautogui #To move your cursor in the middle of the screen 
+import ctypes
+import pyautogui
 
 class Controller:
     def __init__(self) -> None:
