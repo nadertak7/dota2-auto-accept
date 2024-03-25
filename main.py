@@ -1,10 +1,10 @@
-# External libraries 
+# External libraries
 import keyboard
 import mouse
 from pyuac import main_requires_admin
 import time
 
-# Intenral libraries
+# Internal libraries
 from utils import userprompt
 
 @main_requires_admin
