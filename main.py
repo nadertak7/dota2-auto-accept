@@ -1,30 +1,19 @@
+# External libraries 
 import keyboard
 import mouse
 from pyuac import main_requires_admin
 import time
 
+# Intenral libraries
+from utils import userprompt
 
 @main_requires_admin
 def main() -> None:
 
-    class userPrompt: 
-        def __init__(self):
-            pass
-            
-        def introduce(self): 
-            print("Press F8 to Toggle Auto-Accept and F9 to Close")
-
-        def script_state_prompt(self, enable_script_state):
-            if enable_script_state:
-                print("Script Enabled")
-            else:
-                print("Script Disabled")
-
+    # Initialise variables
     enable_script_muteable = [False]
     close_script_muteable = [False]
-    user_prompt = userPrompt()
-
-    user_prompt.introduce()
+    user_prompt = userprompt.userPrompt()
 
     def invert_muteable(list_var):
         list_var[0] = not list_var[0]
@@ -39,7 +28,8 @@ def main() -> None:
     def accept_game() -> None:
         mouse.move(x="1000", y="520")
         mouse.click()
-        time.sleep(5)
+
+    user_prompt.introduce()
 
     keyboard.add_hotkey('f8', toggle_script)
     keyboard.add_hotkey('f9', close_script)
@@ -47,6 +37,7 @@ def main() -> None:
     while not close_script_muteable[0]:
         while enable_script_muteable[0] and not close_script_muteable[0]:
             accept_game()
+            time.sleep(5)
 
 if __name__ == "__main__":
     main()
