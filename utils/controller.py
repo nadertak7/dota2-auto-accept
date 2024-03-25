@@ -3,7 +3,7 @@ import keyboard
 import ctypes #For get resolution of the screen
 import pyautogui #To move your cursor in the middle of the screen 
 
-class scriptManager:
+class Controller:
     def __init__(self) -> None:
         self.enable_script_muteable = [False]
         self.close_script_muteable = [False]

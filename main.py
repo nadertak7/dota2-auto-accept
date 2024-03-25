@@ -2,17 +2,14 @@
 from pyuac import main_requires_admin
 
 # Internal libraries
-from utils import scriptmanager
+from utils import controller
 
 @main_requires_admin
 def main() -> None:
-    controller = scriptmanager.scriptManager()
-
-    controller.introduce()
-
-    controller.add_hotkeys()
-
-    controller.accept_game_loop()
+    controller_instance = controller.Controller()
+    controller_instance.introduce()
+    controller_instance.add_hotkeys()
+    controller_instance.accept_game_loop()
 
 if __name__ == "__main__":
     main()
