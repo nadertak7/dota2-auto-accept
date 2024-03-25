@@ -15,7 +15,7 @@ def main() -> None:
     close_script_muteable = [False]
     user_prompt = userprompt.userPrompt()
 
-    def invert_muteable(list_var):
+    def invert_muteable(list_var) -> None:
         list_var[0] = not list_var[0]
 
     def toggle_script() -> None:
