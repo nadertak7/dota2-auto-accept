@@ -1,6 +1,7 @@
-import mouse
 import time
 import keyboard
+import ctypes #For get resolution of the screen
+import pyautogui #To move your cursor in the middle of the screen 
 
 class scriptManager:
     def __init__(self) -> None:
@@ -33,6 +34,10 @@ class scriptManager:
     def accept_game_loop(self) -> None:
         while not self.close_script_muteable[0]:
             while self.enable_script_muteable[0] and not self.close_script_muteable[0]:
-                mouse.move(x="1000", y="520")
-                mouse.click()
+                center_res = (
+                    ctypes.windll.user32.GetSystemMetrics(0)/2,
+                    ctypes.windll.user32.GetSystemMetrics(1)/2
+                )
+                pyautogui.moveTo(center_res)
+                pyautogui.click()
                 time.sleep(5)
