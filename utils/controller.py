@@ -5,13 +5,13 @@ import pyautogui
 
 class Controller:
     def __init__(self) -> None:
-        self.enable_script_state = False
-        self.close_script_state = False
+        self.enable_script_state: bool = False
+        self.close_script_state: bool = False
 
     def introduce(self):
         print("Press F8 to Toggle Auto-Accept and F9 to Close")
 
-    def script_state_prompt(self, enable_script_state):
+    def script_state_prompt(self, enable_script_state: bool):
         if enable_script_state:
             print("Script Enabled")
         else:
